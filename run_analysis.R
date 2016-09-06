@@ -1,4 +1,16 @@
-## Downloading and unzipping dataset in a directory called "dataUCI"
+##########
+# This script will perform create a tidy output file based on the UCI HAR Dataset downloaded from 
+# https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+# Following main steps will be performed 
+# 1. Downloading and unzipping dataset in a directory called "dataUCI", reading in files
+# 2. Assigning column names that are stored in the text files
+# 3. Merging the sets (train and test) to have one data set
+# 4. Getting the mean and standard deviation for each measurement and set activity names
+# 5. CCreate Output dataset as requested: Independent tidy data set with the average of each variable for each activity and each subject
+##
+##########
+
+### Downloading and unzipping dataset in a directory called "dataUCI"
 ## information about the dataset can be found in http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 if(!file.exists("./dataUCI")){dir.create("./dataUCI")}
@@ -22,7 +34,7 @@ subject_test <- read.table("./dataUCI/UCI HAR Dataset/test/subject_test.txt")
 features <- read.table('./dataUCI/UCI HAR Dataset/features.txt')
 activityLabels = read.table('./dataUCI/UCI HAR Dataset/activity_labels.txt')
 
-# Assigning column names that are stored in the text files
+### Assigning column names that are stored in the text files
 colnames(x_train) <- features[,2] 
 colnames(y_train) <-"activityId"
 colnames(subject_train) <- "subjectId"
@@ -33,13 +45,13 @@ colnames(subject_test) <- "subjectId"
 
 colnames(activityLabels) <- c('activityId','activityType')
 
-## Merging the sets (train and test) to have one data set
+### Merging the sets (train and test) to have one data set
 
 mergeTrain <- cbind(y_train, subject_train, x_train)
 mergeTest <- cbind(y_test, subject_test, x_test)
 AllTogether <- rbind(mergeTrain, mergeTest)
 
-## Getting the mean and standard deviation for each measurement
+### Getting the mean and standard deviation for each measurement and set activity names
 ## First read the columnnames and then create a vector for ID, mean and Standard Deviation
 ## Then making a subset to be used further
 
@@ -54,7 +66,7 @@ baseSetWithNames <- merge(meanAndStandarddev_list, activityLabels,
                           by='activityId',
                           all.x=TRUE)
 
-## Creating Output dataset as requested: Independent tidy data set with the average of each variable for each activity and each subject
+### Create Output dataset as requested: Independent tidy data set with the average of each variable for each activity and each subject
 ## This is written to disk as Second_tidy_UCI.txt
 
 tidiedDataset <- aggregate(. ~subjectId + activityId, baseSetWithNames, mean)
