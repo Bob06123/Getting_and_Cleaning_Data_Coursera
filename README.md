@@ -10,3 +10,4 @@ In the file Codebook.md data and variables are described as well as any tranform
 
 The R-code can be imported (e.g. in Rstudio) and run and will deliver the mentioned file in the working directory.
 
+
