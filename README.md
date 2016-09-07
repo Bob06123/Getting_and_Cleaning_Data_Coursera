@@ -8,5 +8,5 @@ Output is a cleaned up file arranged well for further analysis (Name: Second_tid
 
 In the file Codebook.md data and variables are described as well as any tranformation/work that was needed to deliver the tidy file.
 
-The R-codecan be improted and run and will deliver the mentioned file in the working directory.
+The R-code can be imported (e.g. in Rstudio) and run and will deliver the mentioned file in the working directory.
 
