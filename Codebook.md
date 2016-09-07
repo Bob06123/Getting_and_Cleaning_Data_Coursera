@@ -8,8 +8,8 @@ Following steps are performed to get from the raw data to this tidy file:
   * Variables in this step are fileurl (containing the full adress and name of the zip file) __x_train,  y_train, subject_train, x_test, y_test, subject_test, features and activitylables__. The names of the variables correspond with the files that are read in and need no further description.  
 * Assigning column names that are stored in the text files
 * Merging the sets (train and test) to have one data set
-  * The sets are merged in two steps: first the train data stored in the variable mergeTrain, than the test data stored in the variable mergeTest, in both cases using column bind. These two are combined in AllTogether using row bind.  
+  * The sets are merged in two steps: first the train data stored in the variable __mergeTrain__, than the test data stored in the variable __mergeTest__, in both cases using column bind. These two are combined in __AllTogether__ using row bind.  
 * Getting the mean and standard deviation for each measurement and set activity names
-  * Mean and Standard deviation columns types are stored meanAndStandarddev, and AllTogether dataset is filtered based on this variable (mean and std are TRUE). Resultset is stored in meanAndStandarddev_lsit. This dataset is enriched with the Activity and stored in baseWithNames
+  * Mean and Standard deviation columns types are stored __meanAndStandarddev__, and __AllTogether__ dataset is filtered based on this variable (mean and std are TRUE). Resultset is stored in __meanAndStandarddev_list__. This dataset is enriched with the Activity and stored in __baseWithNames__
 * Create Output dataset aand file with the average of each variable for each activity and each subject
-  * the in the previous step generated set baseWithNames is finally aggregated and stored in tidiedDataset to have a base for writing the outputfile.  
+  * the in the previous step generated set __baseWithNames__ is finally aggregated and stored in __tidiedDataset__ to have a base for writing the outputfile.  
