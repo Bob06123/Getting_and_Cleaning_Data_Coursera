@@ -13,3 +13,4 @@ Following steps are performed to get from the raw data to this tidy file:
   * Mean and Standard deviation columns types are stored __meanAndStandarddev__, and __AllTogether__ dataset is filtered based on this variable (mean and std are TRUE). Resultset is stored in __meanAndStandarddev_list__. This dataset is enriched with the Activity and stored in __baseWithNames__
 * Create Output dataset aand file with the average of each variable for each activity and each subject
   * the in the previous step generated set __baseWithNames__ is finally aggregated and stored in __tidiedDataset__ to have a base for writing the outputfile.  
+
